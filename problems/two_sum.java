@@ -4,10 +4,7 @@
 
 // You can return the answer in any order.
 
- 
-
 // Example 1:
-
 // Input: nums = [2,7,11,15], target = 9
 // Output: [0,1]
 // Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
@@ -19,10 +16,21 @@
 
 // Input: nums = [3,3], target = 6
 // Output: [0,1]
- 
+import java.util.HashMap;
+import java.util.Map;
 
-package problems;
-
-public class two_sum {
-    
+class Solution { 
+    public int[] twoSum(int[] nums, int target) { 
+        Map<Integer,Integer> seenElements = new HashMap<>(); 
+        for(int i = 0;i < nums.length;i++){
+            int element = nums[i];
+            int difference = target - element; 
+            if(seenElements.containsKey(difference)){ 
+                return new int[]{seenElements.get(difference),i}; 
+            }else{ 
+                seenElements.put(element,i); 
+            } 
+        } 
+        return new int[]{}; 
+    }
 }
